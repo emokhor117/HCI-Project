@@ -1,0 +1,141 @@
+import React, { useState } from "react";
+import {
+  Mail,
+  Lock,
+  Eye,
+  Mic,
+} from "lucide-react";
+
+const LoginPage = ({ goToSignup, goToHome }) => {
+  const [remember, setRemember] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-[#f8f6f5] flex items-center justify-center px-4 sm:px-6 py-6 sm:py-10">
+      <div className="w-full max-w-md mx-auto">
+        {/* Logo */}
+        <div className="flex flex-col items-center mb-10 sm:mb-14">
+          <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full bg-[#ddb3b6] flex items-center justify-center mb-6 sm:mb-8">
+            <Mic size={36} className="text-white" />
+          </div>
+
+          <h1 className="text-4xl sm:text-5xl font-bold text-[#2b1f1f] leading-tight text-center">
+            Welcome to ScentWear
+          </h1>
+
+          <p className="text-[#b9ada6] text-base sm:text-xl mt-2 text-center">
+            Experience fragrances before you buy
+          </p>
+        </div>
+
+        {/* Form */}
+        <div className="space-y-6 sm:space-y-8">
+          {/* Email */}
+          <div>
+            <label className="block text-base sm:text-lg font-semibold text-[#867975] mb-3">
+              Email
+            </label>
+
+            <div className="flex items-center bg-white border border-[#eee3de] rounded-3xl px-4 sm:px-6 h-16 sm:h-20 shadow-sm">
+              <Mail className="text-[#b8aca5]" size={24} />
+
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="flex-1 bg-transparent outline-none ml-4 text-base sm:text-lg text-[#867975] placeholder:text-[#b8aca5]"
+              />
+            </div>
+          </div>
+
+          {/* Password */}
+          <div>
+            <label className="block text-base sm:text-lg font-semibold text-[#867975] mb-3">
+              Password
+            </label>
+
+            <div className="flex items-center bg-white border border-[#eee3de] rounded-3xl px-4 sm:px-6 h-16 sm:h-20 shadow-sm">
+              <Lock className="text-[#b8aca5]" size={24} />
+
+              <input
+                type="password"
+                placeholder="Enter your password"
+                className="flex-1 bg-transparent outline-none ml-4 text-base sm:text-lg text-[#867975] placeholder:text-[#b8aca5]"
+              />
+
+              <Eye className="text-[#b8aca5]" size={24} />
+            </div>
+          </div>
+
+          {/* Remember */}
+          <div className="flex items-center justify-between gap-3">
+            <div
+              className="flex items-center gap-3 cursor-pointer"
+              onClick={() => setRemember(!remember)}
+            >
+              <div
+                className={`w-6 h-6 rounded-lg border-2 ${
+                  remember
+                    ? "bg-[#d8a5aa] border-[#d8a5aa]"
+                    : "border-[#867975]"
+                }`}
+              />
+
+              <span className="text-sm sm:text-base font-semibold text-[#867975]">
+                Remember me
+              </span>
+            </div>
+
+            <button className="text-[#d6a2a7] text-sm sm:text-base font-semibold">
+              Forgot password?
+            </button>
+          </div>
+
+          {/* Button */}
+          <button
+            onClick={goToHome}
+            className="w-full h-16 sm:h-20 rounded-full bg-[#d6a8ad] text-white text-lg sm:text-xl font-bold shadow-lg"
+          >
+            Sign In
+          </button>
+
+          {/* Divider */}
+          <div className="flex items-center gap-3 py-4 sm:py-6">
+            <div className="flex-1 h-px bg-[#ece3df]" />
+
+            <span className="text-[#b8aca5] text-sm sm:text-base whitespace-nowrap">
+              Or continue with
+            </span>
+
+            <div className="flex-1 h-px bg-[#ece3df]" />
+          </div>
+
+          {/* Social */}
+          <div className="grid grid-cols-2 gap-4">
+            <button className="h-14 sm:h-16 bg-white border border-[#eee3de] rounded-2xl text-base font-semibold text-[#2d2323]">
+              Google
+            </button>
+
+            <button className="h-14 sm:h-16 bg-white border border-[#eee3de] rounded-2xl text-base font-semibold text-[#2d2323]">
+              GitHub
+            </button>
+          </div>
+
+          {/* Bottom */}
+          <div className="text-center pt-6">
+            <span className="text-[#867975] text-sm sm:text-base">
+              Don't have an account?
+            </span>
+
+            <button
+              onClick={goToSignup}
+              className="text-[#d6a2a7] text-sm sm:text-base font-bold ml-2"
+            >
+              Sign up
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LoginPage;

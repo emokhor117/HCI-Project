@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #e5e0da;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+a,
+input {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@layer components {
+  .auth-input {
+    @apply h-10 w-full rounded-md border border-[#efe4e4] bg-[#fbf8f7] px-3 text-xs text-scent-ink outline-none transition placeholder:text-[#aaa19d] focus:border-rose-pill focus:bg-white focus:ring-4 focus:ring-[#f7e8eb];
+  }
+}
